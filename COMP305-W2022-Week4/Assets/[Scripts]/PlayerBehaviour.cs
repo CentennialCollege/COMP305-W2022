@@ -14,12 +14,16 @@ public class PlayerBehaviour : MonoBehaviour
     public LayerMask groundLayerMask;
     public bool isGrounded;
 
+    [Header("Animation Properties")] 
+    public Animator animator;
+
     private Rigidbody2D rigidBody2D;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,7 +34,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Move()
     {
-        //isGrounded = Physics2D.Linecast(transform.position, groundCheck.position, groundLayerMask);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayerMask);
 
         if (isGrounded)
@@ -44,6 +47,16 @@ public class PlayerBehaviour : MonoBehaviour
                 x = Flip(x);
 
                 // can use this to shift the animation
+                animator.SetInteger("AnimationState", 1); // Run State
+            }
+            else if (x == 0 && y == 0)
+            {
+                animator.SetInteger("AnimationState", 0); // Idle State
+            }
+
+            if (y > 0)
+            {
+                animator.SetInteger("AnimationState", 2); //  Jump State
             }
 
             Vector2 move = new Vector2(x * horizontalForce, y * verticalForce);
