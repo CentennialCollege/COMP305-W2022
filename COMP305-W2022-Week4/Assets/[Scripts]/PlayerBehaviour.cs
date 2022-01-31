@@ -43,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
             float crouch = Input.GetAxisRaw("Crouch");
 
             // check if the player is moving
-            if (run != 0)
+            if (run != 0 && crouch == 0)
             {
                 run = Flip(run);
 
@@ -55,17 +55,21 @@ public class PlayerBehaviour : MonoBehaviour
                 animator.SetInteger("AnimationState", 0); // Idle State
             }
 
-            if (jump > 0)
+            if (jump > 0 && crouch == 0)
             {
                 animator.SetInteger("AnimationState", 2); //  Jump State
             }
-            else if (crouch < 0)
+            else if (run == 0 && crouch < 0)
             {
                 animator.SetInteger("AnimationState", 3); //  Crouch State
             }
 
-            Vector2 move = new Vector2(run * horizontalForce, jump * verticalForce);
-            rigidBody2D.AddForce(move);
+            if (crouch == 0)
+            {
+                Vector2 move = new Vector2(run * horizontalForce, jump * verticalForce);
+                rigidBody2D.AddForce(move);
+            }
+            
         }
     }
 
