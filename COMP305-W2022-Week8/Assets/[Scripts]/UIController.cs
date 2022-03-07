@@ -8,10 +8,26 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     public CanvasRenderer startButtonRenderer;
+    public GameObject optionsPanel;
+
+    public AudioSource selectSound;
+    public AudioSource closeSound;
 
     public void OnStartButton_Pressed()
     {
         SceneManager.LoadScene("Level 1");
+    }
+
+    public void OnCloseButton_Pressed()
+    {
+        optionsPanel.SetActive(false);
+        closeSound.Play();
+    }
+
+    public void OnOptionsButton_Pressed()
+    {
+        optionsPanel.SetActive(true);
+        selectSound.Play();
     }
 
     public void OnStartButton_Over()
