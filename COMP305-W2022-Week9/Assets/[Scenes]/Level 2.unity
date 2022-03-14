@@ -224,6 +224,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4e66201cd8d8644b2bf5540973c1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 10.1
+  direction: 0
+  speed: 2.07
+  timer: 0
+  isLooping: 1
 --- !u!1 &269762634
 GameObject:
   m_ObjectHideFlags: 0
