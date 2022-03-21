@@ -40,12 +40,13 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         Interact();
+        Move();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        
     }
 
     private void Interact()
@@ -59,8 +60,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (isGrounded)
         {
-            float run = Input.GetAxisRaw("Horizontal");
-            float jump = Input.GetAxisRaw("Jump");
+            float run = Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+            float jump = (Input.GetKeyDown(KeyCode.Space)) ? 1 : 0;
             float crouch = Input.GetAxisRaw("Crouch");
 
             // check if the player is moving

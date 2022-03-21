@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DoorCamera
   - Door
+  - Floating Platform
   layers:
   - Default
   - TransparentFX
