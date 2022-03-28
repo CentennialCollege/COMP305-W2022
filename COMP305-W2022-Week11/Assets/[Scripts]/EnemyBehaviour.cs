@@ -9,9 +9,12 @@ public class EnemyBehaviour : MonoBehaviour
     public float speed;
     
     [Header("Ground Check")]
+    public Transform groundCheck;
+    public Vector2 groundColliderSize;
     public Transform groundAheadCheck;
     public LayerMask groundLayerMask;
     public bool isGroundAhead;
+    public bool isGrounded;
 
     
 
@@ -25,12 +28,14 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
         isGroundAhead = Physics2D.Linecast(transform.position, groundAheadCheck.position, groundLayerMask);
-
-        if (isGroundAhead)
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, groundColliderSize, CapsuleDirection2D.Horizontal, 0.0f, groundLayerMask);
+        
+        if (isGrounded)
         {
             Move();
         }
-        else
+        
+        if(!isGroundAhead)
         {
             Flip();
         }
@@ -52,5 +57,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawLine(transform.position, groundAheadCheck.position);
+        Gizmos.DrawWireCube(groundCheck.position, groundColliderSize);
     }
 }
