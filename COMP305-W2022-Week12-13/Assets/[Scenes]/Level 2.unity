@@ -426,11 +426,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2226968097756204986, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.4742737
+      value: -15.78
       objectReference: {fileID: 0}
     - target: {fileID: 2226968097756204986, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1899996
+      value: 5.08
       objectReference: {fileID: 0}
     - target: {fileID: 2226968097756204986, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -463,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 2226968097756204986, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226968097756204991, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
+      propertyPath: fireDelay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
@@ -6176,7 +6180,7 @@ GameObject:
   - component: {fileID: 1339025502}
   m_Layer: 6
   m_Name: Foreground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14593,6 +14597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1535687597}
   - component: {fileID: 1535687596}
+  - component: {fileID: 1535687598}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -14629,6 +14634,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535687598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535687595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecf073af8f923441b1bb65417208eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3928584151294530527, guid: 2b4b41e0ba85c434a8ad9d506af46613, type: 3}
+  bulletCapacity: 200
+  currentPoolSize: 0
 --- !u!1 &1581737865
 GameObject:
   m_ObjectHideFlags: 0
@@ -15163,6 +15183,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2226968097756204991, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
+      propertyPath: fireDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
 --- !u!4 &2024629877 stripped
@@ -15388,10 +15412,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2226968097756204988, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: a878ed16ac45f0743ba93dc581235545, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b6aad0e14d1fb347b8d2759edaec9bb, type: 3}
 --- !u!1001 &4846223582830424748
@@ -15529,6 +15549,10 @@ PrefabInstance:
     - target: {fileID: 6452700186714534353, guid: b97decaf83dbb3c409800a5a67820a7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452700186714534355, guid: b97decaf83dbb3c409800a5a67820a7d, type: 3}
+      propertyPath: distance
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6452700186714534359, guid: b97decaf83dbb3c409800a5a67820a7d, type: 3}
       propertyPath: m_Name

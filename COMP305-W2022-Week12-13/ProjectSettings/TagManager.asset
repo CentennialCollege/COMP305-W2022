@@ -7,6 +7,7 @@ TagManager:
   - DoorCamera
   - Door
   - Floating Platform
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Ground
   - Camera Confiner
   - Checkpoint
-  - 
-  - 
+  - Bullet
+  - Enemy
   - 
   - 
   - 
@@ -55,6 +56,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2670505365
+    locked: 0
+  - name: Bullet
+    uniqueID: 3006405621
     locked: 0
   - name: Enemy
     uniqueID: 3634782975
